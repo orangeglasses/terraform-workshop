@@ -1,0 +1,27 @@
+exclude: '(\d*.idea|tools/.*)'
+fail_fast: false
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.77.1
+    hooks:
+      - id: terraform_fmt
+        exclude: '^\d{3,10}.tfvars'
+      - id: terraform_tflint
+        args:
+          - --args=--config=__GIT_WORKING_DIR__.tflint.hcl
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.1.9
+    hooks:
+      - id: forbid-tabs
+      - id: remove-tabs
+        args: [ '--whitespaces-count', '2' ]  # defaults to: 4
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml
+        types: [ file ]
+        files: (Terrafile|\.yaml|.yml)$
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+      - id: double-quote-string-fixer
