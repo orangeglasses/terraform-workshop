@@ -10,5 +10,6 @@ variable "number" {
 
 variable "input_required" {
   type        = string
+  default = "asdf"
   description = "Try to fill this one from another place not using default"
 }
