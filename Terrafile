@@ -1,0 +1,3 @@
+helm-argocd:
+  source: "git@github.com:michaelmeelis/terraform-workshop-modules"
+  version: "main"
