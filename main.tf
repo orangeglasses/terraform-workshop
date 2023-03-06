@@ -14,7 +14,7 @@ provider "minikube" {
 resource "minikube_cluster" "docker" {
   driver       = "docker"
   cluster_name = "terraform-workshop"
-  addons       = [
+  addons = [
     "default-storageclass",
   ]
 }
@@ -39,7 +39,7 @@ provider "local" {}
 
 resource "local_file" "text_file" {
   filename = "text.txt"
-  content = "Some text"
+  content  = "Some text"
 }
 
 module "argocd" {
