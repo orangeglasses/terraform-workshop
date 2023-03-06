@@ -6,9 +6,6 @@ repos:
     hooks:
       - id: terraform_fmt
         exclude: '^\d{3,10}.tfvars'
-      - id: terraform_tflint
-        args:
-          - --args=--config=__GIT_WORKING_DIR__.tflint.hcl
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.1.9
     hooks:
