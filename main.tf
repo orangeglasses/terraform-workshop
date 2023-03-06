@@ -13,7 +13,7 @@ provider "minikube" {
 
 resource "minikube_cluster" "docker" {
   driver       = "docker"
-  cluster_name = "terraform-workshop"
+  cluster_name = "minikube"
   addons = [
     "default-storageclass",
   ]
