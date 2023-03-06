@@ -10,6 +10,21 @@ variable "number" {
 
 variable "input_required" {
   type        = string
-  default = "asdf"
+  default     = "asdf"
   description = "Try to fill this one from another place not using default"
+}
+
+variable "object" {
+  type = object({
+    complex = object({
+      id   = number
+      name = string
+    })
+    servers = list(string)
+  })
+  description = "Try to fill this object from the tfvars"
+  validation {
+    condition     = var.object.complex.id > 35 && var.object.complex.id < 1000 && length(var.object.servers) > 3 && endswith(var.object.name, "suffix")
+    error_message = "Not valid just yet"
+  }
 }

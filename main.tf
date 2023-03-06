@@ -42,6 +42,7 @@ resource "local_file" "text_file" {
   content  = "Some text"
 }
 
-module "argocd" {
-  source = "./modules/argocd"
+module "examples" {
+  source = "./modules/examples"
+  optional = {}
 }
